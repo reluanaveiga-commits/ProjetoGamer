@@ -1,4 +1,4 @@
 from code.game import Game
 
-game = Game()
-game.run()
+Game = Game()
+Game.run()
