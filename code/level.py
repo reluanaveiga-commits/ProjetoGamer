@@ -7,7 +7,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_HEIGHT, COLOR_WHITE, MENU_OPTION, EVENT_ENEMY, SPAWM_TIME
+from code.Const import WIN_HEIGHT, C_WHITE, MENU_OPTION, EVENT_ENEMY, SPAWM_TIME, C_GREEN, C_CYAN
 from code.EntityMediator import EntityMediator
 from code.enemy import Enemy
 from code.entityFactory import EntityFactory
@@ -43,6 +43,22 @@ class Level:
                     if shot is not None:
                         self.entity_list.append(shot)
 
+                if ent.name == 'Player1':
+                    self.level_text(
+                        text_size=14,
+                        text=f'Player1 - Health: {ent.health} | Score: {ent.score}',
+                        text_color=C_GREEN,
+                        text_pos=(10, 25)
+                    )
+
+                if ent.name == 'Player2':
+                    self.level_text(
+                        text_size=14,
+                        text=f'Player2 - Health: {ent.health} | Score: {ent.score}',
+                        text_color=C_CYAN,
+                        text_pos=(10, 45)
+                    )
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -55,21 +71,21 @@ class Level:
             self.level_text(
                 text_size=14,
                 text=f"[{self.name} - timeout: {self.timeout / 1000: .1f}s]",
-                text_color=COLOR_WHITE,
+                text_color=C_WHITE,
                 text_pos=(10, 5)
             )
 
             self.level_text(
                 text_size=14,
                 text=f"fps: {clock.get_fps(): .0f}",
-                text_color=COLOR_WHITE,
+                text_color=C_WHITE,
                 text_pos=(10, WIN_HEIGHT - 35)
             )
 
             self.level_text(
                 text_size=14,
                 text=f"ENTIDADES: {len(self.entity_list)}",
-                text_color=COLOR_WHITE,
+                text_color=C_WHITE,
                 text_pos=(10, WIN_HEIGHT - 20)
             )
             pygame.display.flip()
