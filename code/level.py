@@ -9,8 +9,10 @@ from pygame.font import Font
 
 from code.Const import WIN_HEIGHT, COLOR_WHITE, MENU_OPTION, EVENT_ENEMY, SPAWM_TIME
 from code.EntityMediator import EntityMediator
+from code.enemy import Enemy
 from code.entityFactory import EntityFactory
 from code.entity import Entity
+from code.player import Player
 
 
 class Level:
@@ -23,7 +25,7 @@ class Level:
         self.entity_list.append(EntityFactory.get_entity('Player1'))
         if game_mode in [MENU_OPTION[1], MENU_OPTION[2]]:
             self.entity_list.append(EntityFactory.get_entity('Player2'))
-        self.timeout = 20000 #20 segundos
+        self.timeout = 20000  # 20 segundos
         pygame.time.set_timer(EVENT_ENEMY, SPAWM_TIME)
 
     def run(self):
@@ -36,6 +38,10 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+                if isinstance(ent, (Player, Enemy)):
+                    shot = ent.shot()
+                    if shot is not None:
+                        self.entity_list.append(shot)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -68,7 +74,7 @@ class Level:
             )
             pygame.display.flip()
 
-            #colissão
+            # colissão
             EntityMediator.verify_collision(entity_list=self.entity_list)
             EntityMediator.verify_health(entity_list=self.entity_list)
 
