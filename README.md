@@ -1,5 +1,4 @@
-(https://github.com/reluanaveiga-commits/ProjetoGamer/blob/master/asset/Player1.png) Mountain Shooter (ttps://github.com/reluanaveiga-commits/ProjetoGamer/blob/master/asset/Player1.png)
-
+Mountain Shooter 
 
 About
 
