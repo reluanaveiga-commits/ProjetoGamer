@@ -1,6 +1,7 @@
 # C
 import pygame
 
+
 C_WHITE = (255, 255, 255)
 C_ORANGE = (255, 128, 0)
 C_YELLOW = (255, 255, 0)
@@ -66,8 +67,6 @@ ENTITY_DAMAGE = {
     'Enemy2Shot': 15,
 }
 
-
-
 ENTITY_SHOT_DELAY = {
     'Player1': 20,
     'Player2': 20,
@@ -88,7 +87,6 @@ ENTITY_HEALTH = {
     'Level2Bg2': 999,
     'Level2Bg3': 999,
     'Level2Bg4': 999,
-
 
     'Player1': 300,
     'Player1Shot': 1,
@@ -163,15 +161,31 @@ ENTITY_SCORE = {
     'Enemy2Shot': 15,
 }
 
-
-
 # S
 SPAWM_TIME = 3000
 
-#T
+# T
 
 TIMEOUT_LEVEL = 20000
 TIMEOUT_STEP = 100
 # W
 WIN_WIDTH = 576
 WIN_HEIGHT = 324
+
+# S
+SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
+             'EnterName': (WIN_WIDTH / 2, 80),
+             'Label': (WIN_WIDTH / 2, 90),
+             'Name': (WIN_WIDTH / 2, 110),
+
+             0: (WIN_WIDTH / 2, 110),
+             1: (WIN_WIDTH / 2, 110),
+             2: (WIN_WIDTH / 2, 130),
+             3: (WIN_WIDTH / 2, 150),
+             4: (WIN_WIDTH / 2, 170),
+             5: (WIN_WIDTH / 2, 190),
+             6: (WIN_WIDTH / 2, 210),
+             7: (WIN_WIDTH / 2, 230),
+             8: (WIN_WIDTH / 2, 250),
+             9: (WIN_WIDTH / 2, 290),
+             }
